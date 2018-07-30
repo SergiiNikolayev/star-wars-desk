@@ -32,3 +32,9 @@ img:hover {
   opacity: .8;
   transition: box-shadow, opacity .5s;
 }
+
+a:hover {
+  color: #2aa9ff;
+  letter-spacing: 2px;
+  transition: color,letter-spacing .6s;
+}

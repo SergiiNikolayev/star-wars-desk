@@ -9,7 +9,7 @@ const Pages = (props) => {
       <Link to={'/'} >To Main page</Link>
       <h1>{currentLink}</h1>
     </div>);
-  const unpackData = (<div>Z</div>);
+  const unpackData = (whatToUnpack) => (<div>data from the server</div>);
 
   switch (currentLink) {
     case '/planets':
