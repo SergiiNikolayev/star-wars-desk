@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 
 import Home from './components/Home'
+import Pages from "./components/Pages";
 
 class App extends Component {
   render() {
@@ -9,11 +10,12 @@ class App extends Component {
       <BrowserRouter>
         <Switch>
           <Route exact path="/" component={Home}/>
-          <Route path="/" component={{/*Planets*/}}/>
-          <Route path="/" component={{/*Planets*/}}/>
-          <Route path="/" component={{/*Planets*/}}/>
-          <Route path="/" component={{/*Planets*/}}/>
-          <Route path="/" component={{/*Planets*/}}/>
+          <Route path={'/planets'} component={Pages}/>
+          <Route path={'/spaceships'} component={Pages}/>
+          <Route path={'/vehicles'} component={Pages}/>
+          <Route path={'/people'} component={Pages}/>
+          <Route path={'/films'} component={Pages}/>
+          <Route path={'/species'} component={Pages}/>
         </Switch>
       </BrowserRouter>
     );
