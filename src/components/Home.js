@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 
 const Home = () => {
   return (
-    <div>
+    <div className="main-menu">
       <ul>
         <li><Link to={'/planets'}><img alt={'planets'} src={require('../assets/img/planets.jpg')}/><p>Planets</p></Link></li>
         <li><Link to={'/spaceships'}><img alt={'spaceships'} src={require('../assets/img/spaceships.jpg')}/><p>Spaceships</p></Link></li>

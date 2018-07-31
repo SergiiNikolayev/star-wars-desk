@@ -11,7 +11,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={Home}/>
           <Route path={['/planets', '/spaceships','/vehicles','/people','/films','/species']} component={Pages}/>
-{/*          <Route path={'/spaceships'} component={Pages}/>
+{/*       <Route path={'/spaceships'} component={Pages}/>
           <Route path={'/vehicles'} component={Pages}/>
           <Route path={'/people'} component={Pages}/>
           <Route path={'/films'} component={Pages}/>

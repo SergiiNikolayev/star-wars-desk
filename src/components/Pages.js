@@ -6,49 +6,67 @@ import {connect} from 'react-redux'
 import {getServerData} from '../store/actions/actionTypes'
 
 const Pages = (props) => {
-  {/*console.log("click at " + currentLink + " | got to info from server to be passed")*/}
-  let currentLink = props.history.location.pathname;
+
+  let currentLocation = props.history.location.pathname;
   const renderHtml = (
     <div>
-      <Link to={'/'} >To Main page</Link>
-      <h1>{currentLink}</h1>
-      <button onClick={e => props.onGetServerData()}>Click</button>
-    </div>);
+      <div>
+        <Link to={'/'}>To Main page</Link>
+        <h1>{currentLocation}</h1>
+        <button onClick={e => props.onGetServerData()}>Click</button>
+        <a href={props.toNextPage}>next</a>
+        {console.log(props.output)}
+      </div>
+      <div>
+        <ul>
+          {
+            props.output.map(item => {
+              return <ol key={item.name}>{item.name}</ol>
+            })
+          }
+        </ul>
+      </div>
 
-  const unpackData = (whatToUnpack) => (<div>data from the server</div>);
+    </div>
 
-  switch (currentLink) {
+  );
+
+  switch (currentLocation) {
     case '/planets':
-      console.log(currentLink);
+      console.log(currentLocation);
       return (renderHtml);
     case '/spaceships':
-      console.log(currentLink);
+      console.log(currentLocation);
       return (renderHtml);
     case '/vehicles':
-      console.log(currentLink);
+      console.log(currentLocation);
       return (renderHtml);
     case '/people':
-      console.log(currentLink);
+      console.log(currentLocation);
       return (renderHtml);
     case '/films':
-      console.log(currentLink);
+      console.log(currentLocation);
       return (renderHtml);
     case '/species':
-      console.log(currentLink);
+      console.log(currentLocation);
       return (renderHtml);
   }
   return (
-    currentLink
+    renderHtml
   );
 };
 //Pages.propTypes = {};
 
 const mapStateToProps = state => {
-  return {...state}
+  return {
+    toNextPage: state.reducerOne.nextPage,
+    output: state.reducerOne.serverData
+  }
 };
-const mapDispatchToProps = dispatch =>{
-  return{
+const mapDispatchToProps = dispatch => {
+  return {
     onGetServerData: () => dispatch(getServerData()),
+    //TODO: pass current location to get right info onGetServerData: (currentLoc) => dispatch({getServerData, currentLoc}),
   }
 };
 
